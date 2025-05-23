@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>True Ghana Cedi Stablecoin (tGHS) | Digital GHS by Valorm Technologies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-tertiary: #111111;
+            --border-color: #27272a;
+            --border-hover: #ff6b35;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            color: #000;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .github-star {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 24px;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .github-star:hover {
+            background: var(--bg-secondary);
+            border-color: var(--border-hover);
+            transform: translateY(-1px);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 140px 0 100px;
+            position: relative;
+        }
+
+        .hero-badge {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: clamp(18px, 3vw, 20px);
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 28px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--border-hover);
+            transform: translateY(-1px);
+        }
+
+        .code-snippet {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            color: #22c55e;
+            margin-bottom: 24px;
+            display: inline-block;
+            font-size: 14px;
+            line-height: 1.6;
+            text-align: left;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        .license-info {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 60px;
+            font-weight: 500;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 60px;
+            letter-spacing: -0.02em;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            border-radius: 28px;
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .tab.active {
+            background: var(--text-primary);
+            color: #000;
+            border-color: var(--text-primary);
+        }
+
+        .steps {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .step {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 48px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: var(--primary-gradient);
+            color: #000;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+
+        .step-content h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .payment-box, .token-box {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+        }
+
+        .payment-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .lightning-icon {
+            color: #f7931e;
+        }
+
+        /* Key Features Section */
+        .features {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .features-subtitle {
+            color: var(--text-secondary);
+            font-size: 18px;
+            margin-bottom: 60px;
+            font-weight: 400;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Roadmap Section */
+        .roadmap {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .roadmap h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .roadmap-subtitle {
+            color: var(--text-secondary);
+            font-size: 18px;
+            margin-bottom: 60px;
+            font-weight: 400;
+        }
+
+        .roadmap-items {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .roadmap-item {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .roadmap-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 44px;
+            width: 2px;
+            height: 40px;
+            background: var(--border-color);
+        }
+
+        .roadmap-icon {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--border-hover);
+            border-radius: 50%;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .roadmap-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .roadmap-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .roadmap .btn {
+            margin-top: 40px;
+        }
+
+        /* Comparison Table */
+        .comparison {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .comparison h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 60px;
+            letter-spacing: -0.02em;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 60px;
+            background: var(--bg-tertiary);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 20px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+
+        .comparison-table th {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:hover {
+            background: var(--bg-secondary);
+        }
+
+        .comparison-table .highlight {
+            color: var(--border-hover);
+            font-weight: 700;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 40px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            max-width: 300px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 24px;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(12px);
+                padding: 20px;
+                flex-direction: column;
+                gap: 20px;
+                border-top: 1px solid var(--border-color);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .hero {
+                padding: 120px 0 80px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+
+            .step-number {
+                align-self: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 32px;
+            }
+
+            .footer-links {
+                justify-content: center;
+                gap: 24px;
+            }
+
+            .comparison-table {
+                font-size: 14px;
+            }
+
+            .comparison-table th, .comparison-table td {
+                padding: 16px 12px;
+            }
+
+            .code-snippet {
+                font-size: 12px;
+                padding: 16px;
+            }
+
+            .tabs {
+                gap: 12px;
+            }
+
+            .tab {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .features h2, .roadmap h2, .comparison h2, .cta-section h2 {
+                font-size: 1.75rem;
+            }
+
+            .step-content h3 {
+                font-size: 20px;
+            }
+
+            .feature-card h3 {
+                font-size: 18px;
+            }
+
+            .payment-row {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Focus styles for accessibility */
+        .btn:focus,
+        .tab:focus,
+        .nav-links a:focus {
+            outline: 2px solid var(--border-hover);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo-container">
+                <div class="logo-icon">t</div>
+                <div class="logo-text">tGHS</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#comparison">Comparison</a></li>
+                <li><a href="#docs">Whitepaper ↗</a></li>
+                <li><a href="https://github.com/valorm/tghs-whitepaper" class="github-star">⭐ Star on GitHub</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">Powered by Polygon + Chainlink</div>
+            
+            <h1>True Ghana Cedi<br>Stablecoin</h1>
+            
+            <p>tGHS brings the stability of the Ghanaian Cedi to blockchain with 80% lower fees than mobile money and enhanced security features</p>
+            
+            <div class="cta-buttons">
+                <a href="#roadmap" class="btn btn-secondary">View Roadmap</a>
+                <a href="#docs" class="btn btn-primary">Read Whitepaper</a>
+            </div>
+            
+            <div class="code-snippet">
+                // ERC-20 Implementation<br>
+                string public name = "True Ghana Cedi Stablecoin";<br>
+                string public symbol = "tGHS";<br>
+                uint8 public decimals = 18;
+            </div>
+            
+            <div class="license-info">
+                Ghanaian Developed • Regulatory Compliance Focused • Community Governance
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab(this, 'users')">For Users</button>
+                <button class="tab" onclick="switchTab(this, 'businesses')">For Businesses</button>
+            </div>
+            
+            <div class="steps" id="users-content">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Acquire tGHS Tokens</h3>
+                        <p>Purchase tGHS directly with mobile money, bank transfers, or cryptocurrency through approved channels.</p>
+                        <div class="payment-box">
+                            <div class="payment-row">
+                                <span class="lightning-icon">⚡</span>
+                                <span>Mobile Money Payment</span>
+                                <span>0.5% fee</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Store in Your Wallet</h3>
+                        <p>Use any ERC-20 compatible wallet to securely store your tGHS tokens with full control of your funds.</p>
+                        <div class="token-box">
+                            <div style="color: #22c55e; margin-bottom: 10px; font-weight: 600;">WALLET ADDRESS</div>
+                            <div style="color: #fff; margin-bottom: 10px; word-break: break-all;">0x71C7656EC7ab88b098defB751B7401B5f6d8976F</div>
+                            <div style="color: #71717a; font-size: 12px;">Your keys, your money</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Spend or Transfer</h3>
+                        <p>Use tGHS for everyday transactions with merchants, send to friends and family, or save with confidence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <p class="features-subtitle">A stable digital Cedi designed for Ghana's economic future</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💸</div>
+                    <h3>Low Cost Transfers</h3>
+                    <p>Domestic transfers at 0.5% fees compared to 1-3% with mobile money, saving businesses thousands annually</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Enhanced Security</h3>
+                    <p>Blockchain-based verification reduces fraud by up to 60% compared to traditional mobile money</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Settlements</h3>
+                    <p>Transactions settle in minutes rather than days, even for cross-border payments within ECOWAS</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Diaspora Remittances</h3>
+                    <p>1% international transfer fees compared to 7.8% average, saving Ghanaians abroad millions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap" id="roadmap">
+        <div class="container">
+            <h2>Roadmap</h2>
+            <p class="roadmap-subtitle">Our progressive journey to building Ghana's digital financial infrastructure</p>
+            
+            <div class="roadmap-items">
+                <div class="roadmap-item">
+                    <div class="roadmap-icon">✓</div>
+                    <div class="roadmap-content">
+                        <h3>Phase 1: Crypto-Backed MVP</h3>
+                        <p>Launch tGHSX as overcollateralized stablecoin with 150% crypto backing (Q4 2025)</p>
+                    </div>
+                </div>
+                
+                <div class="roadmap-item">
+                    <div class="roadmap-icon">✓</div>
+                    <div class="roadmap-content">
+                        <h3>Phase 2: Regulatory Engagement</h3>
+                        <p>Submit comprehensive documentation to Bank of Ghana and SEC (Q3 2025-Q1 2026)</p>
+                    </div>
+                </div>
+                
+                <div class="roadmap-item">
+                    <div class="roadmap-icon">○</div>
+                    <div class="roadmap-content">
+                        <h3>Phase 3: Fiat-Backed Launch</h3>
+                        <p>Transition to 1:1 GHS-backed model with banking partners (Q1 2027, contingent on approvals)</p>
+                    </div>
+                </div>
+                
+                <div class="roadmap-item">
+                    <div class="roadmap-icon">○</div>
+                    <div class="roadmap-content">
+                        <h3>Phase 4: National Adoption</h3>
+                        <p>Integrate with mobile money providers and onboard 50+ merchants (Q2 2027)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#docs" class="btn btn-secondary">View full roadmap →</a>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison" id="comparison">
+        <div class="container">
+            <h2>tGHS vs Mobile Money</h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>tGHS</th>
+                        <th>Mobile Money</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Transaction Fees</td>
+                        <td class="highlight">0.5%</td>
+                        <td>1-3%</td>
+                    </tr>
+                    <tr>
+                        <td>International Transfer Fees</td>
+                        <td class="highlight">1%</td>
+                        <td>5-10%</td>
+                    </tr>
+                    <tr>
+                        <td>Settlement Time</td>
+                        <td class="highlight">Minutes</td>
+                        <td>2-5 days</td>
+                    </tr>
+                    <tr>
+                        <td>Fraud Prevention</td>
+                        <td class="highlight">Blockchain verification</td>
+                        <td>SMS-based</td>
+                    </tr>
+                    <tr>
+                        <td>Programmable Money</td>
+                        <td class="highlight">Smart contract support</td>
+                        <td>Not available</td>
+                    </tr>
+                    <tr>
+                        <td>Annual Savings (50,000 GHS business)</td>
+                        <td class="highlight">12,500 GHS</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Join Ghana's Financial Future</h2>
+            <p>Be part of the movement building Ghanaian financial infrastructure for the digital age</p>
+            <a href="https://github.com/valorm/tghs-whitepaper" class="btn btn-primary">Contribute on GitHub</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>True Ghana Cedi Stablecoin</h3>
+                    <p>Digital financial infrastructure created by Ghanaians, for Ghanaians</p>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#features">Features</a>
+                    <a href="#roadmap">Roadmap</a>
+                    <a href="#comparison">Comparison</a>
+                    <a href="#docs">Whitepaper</a>
+                    <a href="https://twitter.com/true_ghs">Twitter</a>
+                    <a href="https://github.com/valorm/tghs-whitepaper">GitHub</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                © 2025 Valorm Technologies. All Rights Reserved. | Not yet submitted to regulatory authorities
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(clickedTab, tabName) {
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Add active class to clicked tab
+            clickedTab.classList.add('active');
+            
+            // For now, we'll just keep the same content
+            // In a real implementation, you'd switch between different content
+        }
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to feature cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .roadmap-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
